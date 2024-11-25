@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-        await fetch('https://75aa-198-54-131-167.ngrok-free.app/telegram_info', {
+        await fetch(process.env.NGROK_URL + '/telegram_info', {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
